@@ -1,0 +1,37 @@
+import React from 'react';
+  import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+  import HomePage from './pages/HomePage';
+  import Scale from './pages/Scale';
+  import Map from './pages/Map';
+  import Forum from './pages/Forum';
+
+  function App() {
+    return (
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/scale">Scale</Link>
+            </li>
+            <li>
+              <Link to="/map">Map</Link>
+            </li>
+            <li>
+              <Link to="/forum">Forum</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/scale" element={<Scale />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/forum" element={<Forum />} />
+        </Routes>
+      </Router>
+    );
+  }
+  
+  export default App;
