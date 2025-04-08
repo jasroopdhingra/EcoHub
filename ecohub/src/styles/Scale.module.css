@@ -1,0 +1,58 @@
+.main {
+    padding: 4rem;
+    font-family: sans-serif;
+    background-color: #fdfbff;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+  }
+  
+  .grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .column {
+    background-color: #e9f0f4;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .columnTitle {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  /* Shades from light gray to black */
+  .shade1 {
+    background-color: #7e8689;
+  }
+  
+  .shade2 {
+    background-color: #5a5f62;
+  }
+  
+  .shade3 {
+    background-color: #35393c;
+  }
+  
+  .shade4 {
+    background-color: #000808;
+  }
+  
