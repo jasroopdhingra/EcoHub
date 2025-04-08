@@ -1,5 +1,6 @@
 import React from 'react';
 import css from "../styles/Scale.module.css";
+import Navbar from "./Navbar.jsx"; 
 
 
 function Scale() {
@@ -34,7 +35,7 @@ function Scale() {
         {
           title: "Community",
           items: [
-            "join eco-initiatives",
+            "Join eco-initiatives",
             "Attend farmers markets",
             "Start a community garden",
             "Launch a local sustainability campaign"
@@ -44,6 +45,7 @@ function Scale() {
     return (
         
     <main className={css.main}>
+        <Navbar />
         <h1 className={css.heading}>Scale</h1>
         <div className={css.grid}>
           {categories.map((cat) => (

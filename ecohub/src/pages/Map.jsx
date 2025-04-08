@@ -1,10 +1,13 @@
 import React from 'react';
+import Navbar from "./Navbar.jsx"; 
 
 function Map() {
     return (
-    <div>
+    
+    <main>
+        <Navbar />
         <h1>Welcome to the Map</h1>
-    </div>
+    </main>
     );
 }
 

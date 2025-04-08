@@ -4,26 +4,13 @@ import React from 'react';
   import Scale from './pages/Scale';
   import Map from './pages/Map';
   import Forum from './pages/Forum';
+ 
 
+ 
   function App() {
     return (
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/scale">Scale</Link>
-            </li>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-            <li>
-              <Link to="/forum">Forum</Link>
-            </li>
-          </ul>
-        </nav>
+        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/scale" element={<Scale />} />
@@ -33,5 +20,4 @@ import React from 'react';
       </Router>
     );
   }
-  
   export default App;
