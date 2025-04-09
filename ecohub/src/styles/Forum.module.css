@@ -1,0 +1,73 @@
+.heroSection {
+    background-image: url('../assets/green-buildings.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+  }
+  
+  .heroTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+  
+  .forumPage {
+    padding: 1rem 2rem;
+    font-family: sans-serif;
+  }
+  
+  .filterBar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .filterButton {
+    background-color: #3e5723;
+    color: white;
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    border: none;
+    font-size: 0.9rem;
+  }
+  
+  .postCard {
+    border-top: 1px solid gray;
+    padding: 1rem 0;
+  }
+  
+  .postTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  .postTags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tag {
+    background-color: #3e5723;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+  }
+  
+  .replyLink {
+    color: #3266cc;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
