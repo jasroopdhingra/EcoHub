@@ -4,6 +4,8 @@ import React from 'react';
   import Scale from './pages/Scale';
   import Map from './pages/Map';
   import Forum from './pages/Forum';
+  import NewPost from './pages/NewPost';
+
  
 
  
@@ -16,6 +18,7 @@ import React from 'react';
           <Route path="/scale" element={<Scale />} />
           <Route path="/map" element={<Map />} />
           <Route path="/forum" element={<Forum />} />
+          <Route path="/new-post" element={<NewPost />} />
         </Routes>
       </Router>
     );

@@ -1,4 +1,5 @@
-.heroSection {
+/* Hero section */
+.forumHero {
     background-image: url('../assets/green-buildings.jpeg');
     background-size: cover;
     background-position: center;
@@ -10,64 +11,131 @@
     padding-left: 2rem;
   }
   
-  .heroTitle {
+  .forumHero h1 {
     font-size: 3rem;
     font-weight: bold;
     margin: 0;
   }
   
-  .heroSubtitle {
+  .forumHero p {
     font-size: 1.5rem;
   }
   
-  .forumPage {
-    padding: 1rem 2rem;
+  /* Main container */
+  .forumContainer {
+    padding: 1.5rem 2rem;
     font-family: sans-serif;
   }
   
-  .filterBar {
+  /* Tag filter bar */
+  .tagFilters {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  
+  /* Tags */
+  .tag {
+    background-color: #3e5723;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+  }
+  
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid #ccc;
     margin: 1rem 0;
   }
   
-  .filterButton {
-    background-color: #3e5723;
-    color: white;
-    border-radius: 999px;
-    padding: 0.3rem 1rem;
-    border: none;
-    font-size: 0.9rem;
-  }
-  
+  /* Post card */
   .postCard {
-    border-top: 1px solid gray;
     padding: 1rem 0;
   }
   
   .postTitle {
     font-size: 1.3rem;
     font-weight: bold;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .postDesc {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  /* Footer of post */
+  .postFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* optional: allows items to wrap on smaller screens */
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  
+  /* Link buttons (like map and replies) */
+  .link,
+  .repliesButton {
+    background: none;
+    border: none;
+    color: #3266cc;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+
+  
+  /* Replies */
+  .repliesButton {
+    color: #3266cc;
+    font-weight: 500;
+}
+.linkMap {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    color: #3266cc;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
   }
   
   .postTags {
     display: flex;
     gap: 0.5rem;
-    margin-top: 0.5rem;
   }
   
-  .tag {
+  
+  
+  /* Add Post button */
+  .addPost {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     background-color: #3e5723;
     color: white;
-    padding: 0.2rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
   }
   
-  .replyLink {
-    color: #3266cc;
-    cursor: pointer;
-    text-decoration: none;
+  .addPost:hover {
+    background-color: #2e421a;
   }
   

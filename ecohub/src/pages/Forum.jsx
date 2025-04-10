@@ -1,14 +1,24 @@
 import React from 'react';
 import { Plus, MapPin } from 'lucide-react';
 import styles from '../styles/Forum.module.css';
-import Navbar from "./Navbar.jsx"; 
+import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
+const NewPost = () => {
+  const navigate = useNavigate();
 
-
+  return (
+    <div className={styles.addPost} onClick={() => navigate('/new-post')}>
+      <Plus size={16} />
+      Add a post
+    </div>
+  );
+};
 
 const Forum = () => {
   const posts = [
     {
+      id: 1,
       title: 'Sustainable Crafts Fair!!!!',
       description:
         'I heard about an event happening in the quad this Saturday! Students were invited to sell their sustainably-produced crafts. I’m not sure of the time though, can anyone verify?',
@@ -16,6 +26,7 @@ const Forum = () => {
       replies: 2,
     },
     {
+      id: 2,
       title: 'Walsh Hall Closet Swap',
       description:
         'My roommate and I are organizing a girls’ closet swap for anyone looking to get rid of old clothes and find new ones! In the Floor 3 lounge :) 4/12 @2pm',
@@ -26,32 +37,29 @@ const Forum = () => {
 
   return (
     <>
-    <Navbar />
-     {/* <div className={styles.heroSection}>
-        <h1 className={styles.heroTitle}>The Forum</h1>
-        <p className={styles.heroSubtitle}>Got something to share?</p>
-      </div>*/}
+      <div>
+      <Navbar />
+      </div>
 
-      <div className={styles.forumPage}>
-        <div className={styles.filterBar}>
+      <div className={styles.forumContainer}>
+        <div className={styles.tagFilters}>
           <span>Filter by tag:</span>
-          <span className={styles.filterButton}>thrift</span>
-          <span className={styles.filterButton}>events</span>
-          <span className={styles.filterButton}>on-campus</span>
-          <div className={styles.addPost}>
-            <Plus size={16} /> Add a post
-          </div>
+          <span className={styles.tag}>thrift</span>
+          <span className={styles.tag}>events</span>
+          <span className={styles.tag}>on-campus</span>
+          <NewPost />
         </div>
 
         <hr className={styles.divider} />
 
-        {posts.map((post, index) => (
-          <div key={index} className={styles.postCard}>
+        {posts.map((post) => (
+          <div key={post.id} className={styles.postCard}>
             <h2 className={styles.postTitle}>{post.title}</h2>
-            <p>{post.description}</p>
+            <p className={styles.postDesc}>{post.description}</p>
             <div className={styles.postFooter}>
               <a href="#" className={styles.link}>
-                <MapPin size={14} /> Find on map
+                <MapPin size={14} />
+                Find on map
               </a>
               <div className={styles.postTags}>
                 {post.tags.map((tag, i) => (
@@ -61,7 +69,7 @@ const Forum = () => {
                 ))}
               </div>
               {post.replies > 0 && (
-                <a href="#" className={styles.replyLink}>
+                <a href="#" className={styles.repliesButton}>
                   {post.replies} replies ↓
                 </a>
               )}
