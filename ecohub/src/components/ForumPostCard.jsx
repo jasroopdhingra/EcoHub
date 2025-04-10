@@ -15,24 +15,29 @@ export default function ForumPostCard({ post }) {
     <div className={styles.postCard}>
       <h2 className={styles.postTitle}>{post.title}</h2>
       <p className={styles.postDesc}>{post.description}</p>
+      
       <div className={styles.postFooter}>
-        <a href="#" className={styles.link}>
-          <MapPin size={14} />
-          Find on map
-        </a>
-        <div className={styles.postTags}>
-          {post.tags.map((tag, i) => (
-            <span key={i} className={styles.tag}>
-              {tag}
-            </span>
-          ))}
+        <div className={styles.infoRow}>
+          <a href="#" className={styles.link}>
+            <MapPin size={14} />
+            Find on map
+          </a>
+          <div className={styles.postTags}>
+            {post.tags.map((tag, i) => (
+              <span key={i} className={styles.tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
+
         {repliesCount > 0 && (
           <a href="#" className={styles.repliesButton} onClick={toggleReplies}>
             {showReplies ? "Hide replies ↑" : `${repliesCount} replies ↓`}
           </a>
         )}
       </div>
+      
       {showReplies && (
         <div className={styles.replyContainer}>
           {post.replies.map((reply, idx) => (

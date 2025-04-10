@@ -1,4 +1,3 @@
-// HomePage.jsx
 import React from 'react';
 import HomePageNavbar from '../components/HomePageNavbar.jsx';
 import css from '../styles/HomePage.module.css';

@@ -1,4 +1,5 @@
-import React from 'react';
+// Forum.jsx
+import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from "../components/Navbar.jsx";
@@ -19,6 +20,19 @@ const NewPost = () => {
 
 const Forum = () => {
   const posts = initialStore["forum-posts"];
+  const [activeTag, setActiveTag] = useState('');
+
+  const handleTagClick = (tag) => {
+    if (activeTag === tag) {
+      setActiveTag('');
+    } else {
+      setActiveTag(tag);
+    }
+  };
+
+  const filteredPosts = posts.filter(post =>
+    activeTag === '' || post.tags.includes(activeTag)
+  );
 
   return (
     <>
@@ -26,15 +40,30 @@ const Forum = () => {
       <div className={styles.forumContainer}>
         <div className={styles.tagFilters}>
           <span>Filter by tag:</span>
-          <span className={styles.tag}>thrift</span>
-          <span className={styles.tag}>events</span>
-          <span className={styles.tag}>on-campus</span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('thrift')}
+          >
+            thrift
+          </span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('events')}
+          >
+            events
+          </span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('on-campus')}
+          >
+            on-campus
+          </span>
           <NewPost />
         </div>
 
         <hr className={styles.divider} />
 
-        {posts.map((post, index) => (
+        {filteredPosts.map((post, index) => (
           <ForumPostCard key={index} post={post} />
         ))}
       </div>
