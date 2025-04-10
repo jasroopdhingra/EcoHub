@@ -128,4 +128,18 @@
   .addPost:hover {
     background-color: #2e421a;
   }
+  .replyContainer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
   
+  .replyCard {
+    background-color: #f0f0f0; 
+    border-left: 3px solid #2e8b57; 
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
+  }
