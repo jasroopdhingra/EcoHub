@@ -1,0 +1,18 @@
+{"forum" : [
+    {
+      "title": "Sustainable Crafts Fair!!!!",
+      "description": "I heard about an event happening in the quad this Saturday! Students were invited to sell their sustainably-produced crafts. I’m not sure of the time though, can anyone verify?",
+      "tags": ["on-campus", "events"],
+      "replies": [
+        {"text": "I heard it was at 2 pm"},
+        {"text": "thanks for sharing!"}
+      ]
+    },
+    {
+      "title": "Walsh Hall Closet Swap",
+      "description": "My roommate and I are organizing a girls’ closet swap for anyone looking to get rid of old clothes and find new ones! In the Floor 3 lounge :) 4/12 @2pm",
+      "tags": ["on-campus", "thrift"],
+      "replies": []
+    }
+  ]}
+  
