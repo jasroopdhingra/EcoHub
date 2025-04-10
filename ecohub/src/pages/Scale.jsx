@@ -10,7 +10,7 @@ function Scale() {
   return (
     <main className={css.main}>
       <Navbar />
-      <h1 className={css.heading}>Scale</h1>
+      <h1 className={css.heading}>What Can You Do?</h1>
       <div className={css.grid}>
         {categories.map((cat) => (
           <CategoryCard key={cat.title} title={cat.title} items={cat.items} />
