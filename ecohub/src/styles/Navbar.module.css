@@ -1,15 +1,31 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-image: url('../assets/green-buildings.jpeg');
-    background-size: cover;
-    background-position: center;
-    
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-image: url('../assets/green-buildings.jpeg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+  
+  .navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 0; 
   }
   
+  .navbar > * {
+    position: relative;
+    z-index: 1;
+  }
   
   .title {
     font-size: 1.5rem;
@@ -17,6 +33,10 @@
     color: white;
   }
   
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+
   .navLinks {
     list-style: none;
     display: flex;

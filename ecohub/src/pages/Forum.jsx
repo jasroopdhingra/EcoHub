@@ -2,8 +2,7 @@ import React from 'react';
 import { Plus, MapPin } from 'lucide-react';
 import styles from '../styles/Forum.module.css';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-
+import Navbar from "../components/Navbar.jsx"; 
 const NewPost = () => {
   const navigate = useNavigate();
 

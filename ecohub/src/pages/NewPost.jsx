@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Image as ImageIcon } from 'lucide-react';
 import styles from '../styles/NewPost.module.css';
-import Navbar from './Navbar';
-
+import Navbar from "../components/Navbar.jsx"; 
 const tagOptions = ['thrift', 'events', 'on-campus'];
 
 const NewPost = ({ addPost }) => {

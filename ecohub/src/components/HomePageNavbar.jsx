@@ -21,7 +21,7 @@ export default function HomePageNavbar() {
       };
   return (
     <nav className={css.navbar}>
-        <span className={css.title}>{getPageTitle()}</span>
+        <span className="title">{getPageTitle()}</span>
       <ul className={css.navLinks}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/scale">Scale</Link></li>

@@ -1,4 +1,3 @@
-/* Hero section */
 .forumHero {
     background-image: url('../assets/green-buildings.jpeg');
     background-size: cover;
@@ -21,13 +20,11 @@
     font-size: 1.5rem;
   }
   
-  /* Main container */
   .forumContainer {
     padding: 1.5rem 2rem;
     font-family: sans-serif;
   }
   
-  /* Tag filter bar */
   .tagFilters {
     display: flex;
     align-items: center;
@@ -36,7 +33,6 @@
     margin-bottom: 1rem;
   }
   
-  /* Tags */
   .tag {
     background-color: #3e5723;
     color: white;
@@ -45,14 +41,12 @@
     font-size: 0.85rem;
   }
   
-  /* Divider */
   .divider {
     border: none;
     border-top: 1px solid #ccc;
     margin: 1rem 0;
   }
   
-  /* Post card */
   .postCard {
     padding: 1rem 0;
   }
@@ -68,18 +62,16 @@
     line-height: 1.4;
   }
   
-  /* Footer of post */
   .postFooter {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap; /* optional: allows items to wrap on smaller screens */
+    flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
   }
   
   
-  /* Link buttons (like map and replies) */
   .link,
   .repliesButton {
     background: none;
@@ -95,7 +87,6 @@
 
 
   
-  /* Replies */
   .repliesButton {
     color: #3266cc;
     font-weight: 500;
@@ -119,7 +110,6 @@
   
   
   
-  /* Add Post button */
   .addPost {
     margin-left: auto;
     display: flex;

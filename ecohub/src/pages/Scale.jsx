@@ -1,7 +1,6 @@
 import React from 'react';
 import css from "../styles/Scale.module.css";
-import Navbar from "./Navbar.jsx"; 
-
+import Navbar from "../components/Navbar.jsx"; 
 
 function Scale() {
     const categories = [
