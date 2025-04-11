@@ -16,7 +16,7 @@ export default function Navbar() {
           case '/forum':
             return 'Forum';
           default:
-            return 'Page';
+            return 'New Post';
         }
       };
   return (
