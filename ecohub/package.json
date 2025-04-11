@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.3.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.487.0",
     "maplibre-gl": "^5.3.0",
@@ -20,10 +21,13 @@
     "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://jasroopdhingra.github.io/EcoHub",
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -b main -d build"
   },
   "eslintConfig": {
     "extends": [
