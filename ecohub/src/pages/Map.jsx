@@ -5,9 +5,19 @@ import Navbar from '../components/Navbar';
 import styles from '../styles/Map.module.css';
 
 const hardcodedPosts = [
-  { title: 'Campus Cleanup', tags: ['on-campus', 'events'], coords: [-71.171, 42.3355] },
-  { title: 'Thrift Swap', tags: ['thrift', 'events'], coords: [-71.172, 42.3365] }
-];
+    {
+      title: 'Sustainable Crafts Fair',
+      tags: ['on-campus', 'events'],
+      coords: [-71.171, 42.3355],
+      colorClass: 'postColor1',
+    },
+    {
+      title: 'Walsh Hall Closet Swap',
+      tags: ['thrift', 'events'],
+      coords: [-71.165, 42.3379],
+      colorClass: 'postColor2',
+    }
+  ];
 
 export default function MapWithForum() {
   const mapRef = useRef(null);
@@ -15,7 +25,7 @@ export default function MapWithForum() {
   const [mapLoaded, setMapLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const BC = [-71.171, 42.3355]; 
+  const BC = [-71.165, 42.3355]; 
 
   useEffect(() => {
     const map = new maplibregl.Map({
@@ -24,23 +34,43 @@ export default function MapWithForum() {
       center: BC,
       zoom: 14,
     });
-
+  
     mapRef.current = map;
-
+  
     map.on('load', () => {
+      
       hardcodedPosts.forEach((post) => {
-        const marker = new maplibregl.Marker()
-          .setLngLat(post.coords)
-          .setPopup(new maplibregl.Popup().setHTML(`<h3>${post.title}</h3><p>Event at Boston College</p>`))
-          .addTo(map);
+        const markerEl = document.createElement('div');
+        
+        let markerColor;
+        if (post.colorClass === 'postColor1') {
+          markerColor = '#27ae60';
+        } else if (post.colorClass === 'postColor2') {
+          markerColor = '#2980b9'; 
+        }
+  
+        markerEl.style.backgroundColor = markerColor;
+        markerEl.style.width = '24px'; 
+        markerEl.style.height = '24px';
+        markerEl.style.borderRadius = '50%'; 
+        markerEl.style.border = '2px solid white'; 
+        markerEl.style.boxShadow = '0 0 3px rgba(0,0,0,0.5)'; 
+  
+
+        new maplibregl.Marker({ element: markerEl })
+            .setLngLat(post.coords)
+            .setPopup(new maplibregl.Popup().setHTML(`<h3>${post.title}</h3><p>Event at Boston College</p>`))
+            .addTo(map)
       });
+  
       setMapLoaded(true);
     });
-
+  
     return () => {
       map.remove();
     };
   }, []);
+  
 
   const handlePostClick = (post) => {
     if (!mapRef.current || !mapLoaded) return;
@@ -97,15 +127,16 @@ export default function MapWithForum() {
           </div>
           <hr />
           {hardcodedPosts.map((post, i) => (
-            <div key={i} className={styles.postCard} onClick={() => handlePostClick(post)}>
-              <div className={styles.postTitle}>{post.title}</div>
-              <div className={styles.postTags}>
-                {post.tags.map((tag, j) => (
-                  <span key={j} className={styles.tag}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+  <div key={i} className={`${styles.postCard} ${styles[post.colorClass]}`} onClick={() => handlePostClick(post)}>
+    <div className={styles.colorBar}></div>
+    <div className={styles.postTitle}>{post.title}</div>
+    <div className={styles.postTags}>
+      {post.tags.map((tag, j) => (
+        <span key={j} className={styles.tag}>{tag}</span>
+      ))}
+    </div>
+  </div>
+))}
         </div>
       </div>
     </div>
