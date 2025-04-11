@@ -1,0 +1,88 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .mainContent {
+    display: flex;
+    height: 100%;
+    margin-top: 64px;
+  }
+  
+  .leftPanel {
+    width: 60%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .rightPanel {
+    width: 40%;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #f8f8f8;
+  }
+  
+  .searchBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .searchBar input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .searchBar button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .map {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .postCard {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.2s ease;
+  }
+  
+  .postCard:hover {
+    background: #f0f0f0;
+  }
+  
+  .postTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .postTags {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    background-color: #3e5723;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+  }
+  
