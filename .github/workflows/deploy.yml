@@ -1,6 +1,5 @@
 name: Deploy to GitHub Pages
 
-# run on every push to main
 on:
   push:
     branches:
@@ -10,25 +9,21 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. check out your repo
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      # 2. set up Node (v18 is fine for CRA)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 3. install dependencies
       - name: Install dependencies
-        run: npm ci
+        # Either commit a package-lock.json and keep this as `npm ci`,
+        # or switch to `npm install`:
+        run: npm install
 
-      # 4. build your app
       - name: Build
         run: npm run build
 
-      # 5. deploy the contents of build/ to gh-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
