@@ -25,13 +25,12 @@ export default function MapWithForum() {
   const [mapLoaded, setMapLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const BC = [-71.165, 42.3355]; 
 
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: 'https://api.maptiler.com/maps/basic-v2/style.json?key=zxI0KxtpdcNfhTmR7PEA',
-      center: BC,
+      center: [-71.165, 42.3355],
       zoom: 14,
     });
   

@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { MapPin } from 'lucide-react';
 import styles from '../styles/Forum.module.css';
 
-export default function ForumPostCard({ post }) {
+export default function ForumPostCard({ post, onFindOnMap }) {
   const repliesCount = post.replies ? post.replies.length : 0;
   const [showReplies, setShowReplies] = useState(false);
 
   const toggleReplies = (e) => {
     e.preventDefault();
     setShowReplies((prev) => !prev);
+  };
+
+  const handleFindOnMap = () => {
+    if (onFindOnMap) onFindOnMap(post);
+    else console.log('Find on map clicked for', post);
   };
 
   return (
@@ -18,10 +23,15 @@ export default function ForumPostCard({ post }) {
       
       <div className={styles.postFooter}>
         <div className={styles.infoRow}>
-          <a href="#" className={styles.link}>
+          <button
+            type="button"
+            className={styles.link}
+            onClick={handleFindOnMap}
+          >
             <MapPin size={14} />
             Find on map
-          </a>
+          </button>
+
           <div className={styles.postTags}>
             {post.tags.map((tag, i) => (
               <span key={i} className={styles.tag}>
@@ -32,9 +42,13 @@ export default function ForumPostCard({ post }) {
         </div>
 
         {repliesCount > 0 && (
-          <a href="#" className={styles.repliesButton} onClick={toggleReplies}>
+          <button
+            type="button"
+            className={styles.repliesButton}
+            onClick={toggleReplies}
+          >
             {showReplies ? "Hide replies ↑" : `${repliesCount} replies ↓`}
-          </a>
+          </button>
         )}
       </div>
       
