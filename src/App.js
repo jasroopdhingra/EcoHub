@@ -11,16 +11,15 @@ import React from 'react';
  
   function App() {
     return (
-      <Router>
-        
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/scale" element={<Scale />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/forum" element={<Forum />} />
-          <Route path="/new-post" element={<NewPost />} />
-        </Routes>
-      </Router>
-    );
-  }
-  export default App;
+      +    <Router basename={process.env.PUBLIC_URL}>
+             <Routes>
+               <Route path="/" element={<HomePage />} />
+               <Route path="/scale" element={<Scale />} />
+               <Route path="/map" element={<Map />} />
+               <Route path="/forum" element={<Forum />} />
+               <Route path="/new-post" element={<NewPost />} />
+             </Routes>
+           </Router>
+         );
+       }
+       export default App;
