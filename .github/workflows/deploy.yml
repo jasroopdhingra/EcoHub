@@ -1,4 +1,6 @@
 name: Deploy to GitHub Pages
+permissions:
+  contents: write
 
 on:
   push:
@@ -10,20 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+        with:
+          fetch-depth: 0
+          # persist-credentials: true is the default
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Install dependencies
-        # Either commit a package-lock.json and keep this as `npm ci`,
-        # or switch to `npm install`:
+      - name: Install
         run: npm install
-
       - name: Build
         run: npm run build
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
