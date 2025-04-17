@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ecohub/static/css/main.c854c7d2.chunk.css",
-    "main.js": "/ecohub/static/js/main.8fc03863.chunk.js",
-    "main.js.map": "/ecohub/static/js/main.8fc03863.chunk.js.map",
+    "main.js": "/ecohub/static/js/main.7e6281ec.chunk.js",
+    "main.js.map": "/ecohub/static/js/main.7e6281ec.chunk.js.map",
     "runtime-main.js": "/ecohub/static/js/runtime-main.85a296e2.js",
     "runtime-main.js.map": "/ecohub/static/js/runtime-main.85a296e2.js.map",
     "static/css/2.5470235e.chunk.css": "/ecohub/static/css/2.5470235e.chunk.css",
@@ -11,7 +11,7 @@
     "static/js/3.d67e1488.chunk.js": "/ecohub/static/js/3.d67e1488.chunk.js",
     "static/js/3.d67e1488.chunk.js.map": "/ecohub/static/js/3.d67e1488.chunk.js.map",
     "index.html": "/ecohub/index.html",
-    "precache-manifest.8b79284deab25fb60d82c6ca8cd6c5d2.js": "/ecohub/precache-manifest.8b79284deab25fb60d82c6ca8cd6c5d2.js",
+    "precache-manifest.9fdfbd25f14209668d0bbc373a74f5f1.js": "/ecohub/precache-manifest.9fdfbd25f14209668d0bbc373a74f5f1.js",
     "service-worker.js": "/ecohub/service-worker.js",
     "static/css/2.5470235e.chunk.css.map": "/ecohub/static/css/2.5470235e.chunk.css.map",
     "static/css/main.c854c7d2.chunk.css.map": "/ecohub/static/css/main.c854c7d2.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.5470235e.chunk.css",
     "static/js/2.ae60b879.chunk.js",
     "static/css/main.c854c7d2.chunk.css",
-    "static/js/main.8fc03863.chunk.js"
+    "static/js/main.7e6281ec.chunk.js"
   ]
 }
