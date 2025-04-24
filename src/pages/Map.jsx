@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Map.module.css';
 import initialStore from '../assets/initialStore.json';
-import { map } from 'leaflet';
+
 
 export default function MapWithForum() {
   const mapRef = useRef(null);
@@ -23,7 +23,7 @@ export default function MapWithForum() {
       style: 'https://api.maptiler.com/maps/basic-v2/style.json?key=zxI0KxtpdcNfhTmR7PEA',
       center: [-71.165, 42.3355],
       zoom: 14,
-    });
+    },[]);
 
     mapRef.current = map;
     mapRef.current.markerMap = {};
