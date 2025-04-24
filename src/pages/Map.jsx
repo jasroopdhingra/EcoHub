@@ -50,7 +50,7 @@ export default function MapWithForum() {
     });
 
     return () => map.remove();
-  }, []);
+  }, [posts]);
 
   const handlePostClick = (post) => {
     if (!mapRef.current || !mapLoaded) return;
