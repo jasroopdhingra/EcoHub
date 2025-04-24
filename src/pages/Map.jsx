@@ -5,26 +5,30 @@ import Navbar from '../components/Navbar';
 import styles from '../styles/Map.module.css';
 
 const hardcodedPosts = [
-    {
-      title: 'Sustainable Crafts Fair',
-      tags: ['on-campus', 'events'],
-      coords: [-71.171, 42.3355],
-      colorClass: 'postColor1',
-    },
-    {
-      title: 'Walsh Hall Closet Swap',
-      tags: ['thrift', 'events'],
-      coords: [-71.165, 42.3379],
-      colorClass: 'postColor2',
-    }
-  ];
+  {
+    title: 'Sustainable Crafts Fair',
+    tags: ['on-campus', 'events'],
+    coords: [-71.1702, 42.3352],
+    colorClass: 'postColor1',
+    time: 'This Saturday, time TBD',
+  },
+  {
+    title: 'Walsh Hall Closet Swap',
+    tags: ['thrift', 'events'],
+    coords: [-71.165, 42.3379],
+    colorClass: 'postColor2',
+    time: '4/12 @2pm',
+  }
+];
 
 export default function MapWithForum() {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [filteredPosts, setFilteredPosts] = useState(hardcodedPosts);
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedTag, setSelectedTag] = useState('');  // New state for selected tag
 
   useEffect(() => {
     const map = new maplibregl.Map({
@@ -33,86 +37,110 @@ export default function MapWithForum() {
       center: [-71.165, 42.3355],
       zoom: 14,
     });
-  
+
     mapRef.current = map;
-  
+    mapRef.current.markerMap = {};
+
     map.on('load', () => {
-      
       hardcodedPosts.forEach((post) => {
         const markerEl = document.createElement('div');
-        
-        let markerColor;
-        if (post.colorClass === 'postColor1') {
-          markerColor = '#27ae60';
-        } else if (post.colorClass === 'postColor2') {
-          markerColor = '#2980b9'; 
-        }
-  
-        markerEl.style.backgroundColor = markerColor;
-        markerEl.style.width = '24px'; 
-        markerEl.style.height = '24px';
-        markerEl.style.borderRadius = '50%'; 
-        markerEl.style.border = '2px solid white'; 
-        markerEl.style.boxShadow = '0 0 3px rgba(0,0,0,0.5)'; 
-  
+        markerEl.className = `${styles.marker} ${styles[post.colorClass]}`;
 
-        new maplibregl.Marker({ element: markerEl })
-            .setLngLat(post.coords)
-            .setPopup(new maplibregl.Popup().setHTML(`<h3>${post.title}</h3><p>Event at Boston College</p>`))
-            .addTo(map)
+        const popup = new maplibregl.Popup({ offset: 25 }).setHTML(`
+          <h3>${post.title}</h3>
+          <p>${post.time}</p>
+        `);
+
+        const marker = new maplibregl.Marker({ element: markerEl })
+          .setLngLat(post.coords)
+          .setPopup(popup)
+          .addTo(map);
+
+        mapRef.current.markerMap[post.title] = { marker, popup, coords: post.coords };
       });
-  
+
       setMapLoaded(true);
     });
-  
-    return () => {
-      map.remove();
-    };
+
+    return () => map.remove();
   }, []);
-  
 
   const handlePostClick = (post) => {
     if (!mapRef.current || !mapLoaded) return;
     mapRef.current.flyTo({ center: post.coords, zoom: 15 });
   };
 
-  const handleSearch = () => {
-    if (searchQuery.trim() === '') return;
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query.trim() === '') {
+      setSuggestions([]);
+      return;
+    }
+
+    const matches = hardcodedPosts.filter(post =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setSuggestions(matches);
+  };
+
+  const handleSuggestionClick = (post) => {
+    setSearchQuery(post.title);
+    setSuggestions([]);
+
+    const markerObj = mapRef.current?.markerMap?.[post.title];
+    if (markerObj) {
+      const { popup, coords } = markerObj;
+      mapRef.current.flyTo({ center: coords, zoom: 15 });
+      popup.addTo(mapRef.current);
+    }
+  };
 
 
-    const apiKey = 'zxI0KxtpdcNfhTmR7PEA';
-    fetch(`https://api.maptiler.com/geocoding/${searchQuery}.json?key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.features && data.features.length > 0) {
-          const location = data.features[0].geometry.coordinates;
-          if (mapRef.current) {
-            mapRef.current.flyTo({
-              center: location,
-              zoom: 14,
-            });
-          }
-        } else {
-          alert('Location not found');
-        }
-      })
+  const handleTagChange = (e) => {
+    const selectedTag = e.target.value;
+    setSelectedTag(selectedTag);
+
+    if (selectedTag === '') {
+      setFilteredPosts(hardcodedPosts);
+    } else {
+      const filtered = hardcodedPosts.filter(post =>
+        post.tags.includes(selectedTag)
+      );
+      setFilteredPosts(filtered);
+    }
   };
 
   return (
     <div className={styles.pageContainer}>
       <Navbar />
-
       <div className={styles.mainContent}>
         <div className={styles.leftPanel}>
-          <div className={styles.searchBar}>
-            <span className={styles.searchLabel}>Events near:</span>
-            <input
-              type="text"
-              placeholder="Search location..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button onClick={handleSearch}>Search</button>
+          <div className={styles.searchBarWrapper}>
+            <div className={styles.searchBar}>
+              <span className={styles.searchLabel}>Search Events:</span>
+              <input
+                type="text"
+                placeholder="Event name"
+                value={searchQuery}
+                onChange={handleInputChange}
+                className={styles.searchInput}
+              />
+            </div>
+            {suggestions.length > 0 && (
+              <ul className={styles.suggestionList}>
+                {suggestions.map((post, i) => (
+                  <li
+                    key={i}
+                    className={styles.suggestionItem}
+                    onClick={() => handleSuggestionClick(post)}
+                  >
+                    {post.title}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div ref={mapContainerRef} className={styles.map}></div>
         </div>
@@ -120,22 +148,30 @@ export default function MapWithForum() {
         <div className={styles.rightPanel}>
           <div className={styles.tagFilters}>
             <span>Filter by tag:</span>
-            <span className={styles.tag}>events</span>
-            <span className={styles.tag}>on-campus</span>
-            <span className={styles.tag}>thrift</span>
+            <select value={selectedTag} onChange={handleTagChange} className={styles.tagSelect}>
+              <option value="">All</option>
+              <option value="events">Events</option>
+              <option value="on-campus">On Campus</option>
+              <option value="thrift">Thrift</option>
+            </select>
           </div>
           <hr />
-          {hardcodedPosts.map((post, i) => (
-  <div key={i} className={`${styles.postCard} ${styles[post.colorClass]}`} onClick={() => handlePostClick(post)}>
-    <div className={styles.colorBar}></div>
-    <div className={styles.postTitle}>{post.title}</div>
-    <div className={styles.postTags}>
-      {post.tags.map((tag, j) => (
-        <span key={j} className={styles.tag}>{tag}</span>
-      ))}
-    </div>
-  </div>
-))}
+          {filteredPosts.map((post, i) => (
+            <div
+              key={i}
+              className={`${styles.postCard} ${styles[post.colorClass]}`}
+              onClick={() => handlePostClick(post)}
+            >
+              <div className={styles.colorBar}></div>
+              <div className={styles.postTitle}>{post.title}</div>
+              <div className={styles.postTime}>{post.time}</div> 
+              <div className={styles.postTags}>
+                {post.tags.map((tag, j) => (
+                  <span key={j} className={styles.tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
