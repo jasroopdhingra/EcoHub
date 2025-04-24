@@ -3,32 +3,19 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Map.module.css';
-
-const hardcodedPosts = [
-  {
-    title: 'Sustainable Crafts Fair',
-    tags: ['on-campus', 'events'],
-    coords: [-71.1702, 42.3352],
-    colorClass: 'postColor1',
-    time: 'This Saturday, time TBD',
-  },
-  {
-    title: 'Walsh Hall Closet Swap',
-    tags: ['thrift', 'events'],
-    coords: [-71.165, 42.3379],
-    colorClass: 'postColor2',
-    time: '4/12 @2pm',
-  }
-];
+import initialStore from '../assets/initialStore.json';
+import { map } from 'leaflet';
 
 export default function MapWithForum() {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
+  const posts = initialStore["forum-posts"];
+
   const [mapLoaded, setMapLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(hardcodedPosts);
+  const [filteredPosts, setFilteredPosts] = useState(posts);
   const [suggestions, setSuggestions] = useState([]);
-  const [selectedTag, setSelectedTag] = useState('');  // New state for selected tag
+  const [selectedTag, setSelectedTag] = useState('');
 
   useEffect(() => {
     const map = new maplibregl.Map({
@@ -42,7 +29,7 @@ export default function MapWithForum() {
     mapRef.current.markerMap = {};
 
     map.on('load', () => {
-      hardcodedPosts.forEach((post) => {
+      posts.forEach((post) => {
         const markerEl = document.createElement('div');
         markerEl.className = `${styles.marker} ${styles[post.colorClass]}`;
 
@@ -67,7 +54,13 @@ export default function MapWithForum() {
 
   const handlePostClick = (post) => {
     if (!mapRef.current || !mapLoaded) return;
-    mapRef.current.flyTo({ center: post.coords, zoom: 15 });
+  
+    const markerObj = mapRef.current.markerMap[post.title];
+    if (markerObj) {
+      const { marker, coords } = markerObj;
+      mapRef.current.flyTo({ center: coords, zoom: 15 });
+      marker.togglePopup();
+    }
   };
 
   const handleInputChange = (e) => {
@@ -79,7 +72,7 @@ export default function MapWithForum() {
       return;
     }
 
-    const matches = hardcodedPosts.filter(post =>
+    const matches = posts.filter(post =>
       post.title.toLowerCase().includes(query.toLowerCase())
     );
     setSuggestions(matches);
@@ -91,30 +84,35 @@ export default function MapWithForum() {
 
     const markerObj = mapRef.current?.markerMap?.[post.title];
     if (markerObj) {
-      const { popup, coords } = markerObj;
+      const { marker, coords } = markerObj;
       mapRef.current.flyTo({ center: coords, zoom: 15 });
-      popup.addTo(mapRef.current);
+      marker.togglePopup();
     }
   };
-
 
   const handleTagChange = (e) => {
     const selectedTag = e.target.value;
     setSelectedTag(selectedTag);
 
     if (selectedTag === '') {
-      setFilteredPosts(hardcodedPosts);
+      setFilteredPosts(posts);
     } else {
-      const filtered = hardcodedPosts.filter(post =>
+      const filtered = posts.filter(post =>
         post.tags.includes(selectedTag)
       );
       setFilteredPosts(filtered);
     }
   };
 
+  const allTags = Array.from(
+    new Set(posts.flatMap(post => post.tags))
+  );
+
   return (
-    <div className={styles.pageContainer}>
+    <main>
       <Navbar />
+    <div className={styles.pageContainer}>
+
       <div className={styles.mainContent}>
         <div className={styles.leftPanel}>
           <div className={styles.searchBarWrapper}>
@@ -146,28 +144,30 @@ export default function MapWithForum() {
         </div>
 
         <div className={styles.rightPanel}>
-          <div className={styles.tagFilters}>
+        <div className={styles.tagFilters}>
             <span>Filter by tag:</span>
             <select value={selectedTag} onChange={handleTagChange} className={styles.tagSelect}>
               <option value="">All</option>
-              <option value="events">Events</option>
-              <option value="on-campus">On Campus</option>
-              <option value="thrift">Thrift</option>
+              {allTags.map((tag, i) => (
+                <option key={i} value={tag}>
+                  {tag}
+                </option>
+              ))}
             </select>
           </div>
           <hr />
           {filteredPosts.map((post, i) => (
             <div
               key={i}
-              className={`${styles.postCard} ${styles[post.colorClass]}`}
+              className={`${styles.postCard}`}
               onClick={() => handlePostClick(post)}
             >
-              <div className={styles.colorBar}></div>
+              <div className={`${styles.colorBar} ${styles[post.colorClass]}`}></div>
               <div className={styles.postTitle}>{post.title}</div>
-              <div className={styles.postTime}>{post.time}</div> 
+              <div className={styles.postTime}>{post.time}</div>
               <div className={styles.postTags}>
                 {post.tags.map((tag, j) => (
-                  <span key={j} className={styles.tag}>{tag}</span>
+                  <span key={j} className={`${styles.tag} ${styles[post.colorClass]}`}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -175,5 +175,6 @@ export default function MapWithForum() {
         </div>
       </div>
     </div>
+    </main>
   );
 }

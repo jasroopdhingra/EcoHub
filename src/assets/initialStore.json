@@ -2,18 +2,58 @@
     {
       "title": "Sustainable Crafts Fair!!!!",
       "description": "I heard about an event happening in the quad this Saturday! Students were invited to sell their sustainably-produced crafts. I’m not sure of the time though, can anyone verify?",
-      "tags": ["on-campus", "events"],
+      "time": "Saturday, 2pm",
+      "tags": ["on-campus", "events", "shop"],
       "replies": [
         {"text": "I heard it was at 2 pm"},
         {"text": "thanks for sharing!"}
-      ]
+      ],
+      "colorClass": "postColor1",
+      "coords": [-71.1702, 42.3352]
     },
     {
       "title": "Walsh Hall Closet Swap",
       "description": "My roommate and I are organizing a girls’ closet swap for anyone looking to get rid of old clothes and find new ones! In the Floor 3 lounge :) 4/12 @2pm",
-      "tags": ["on-campus", "thrift"],
-      "replies": []
+      "time": "4/12, 2pm",
+      "tags": ["on-campus", "thrift", "shop"],
+      "replies": [],
+      "colorClass": "postColor2",
+      "coords": [-71.165, 42.3379]
+    },
+    {
+      "title": "Farmers Market!",
+      "description": "We are having a farmer's market outside of lower Friday afternoon! Please come for fresh fruit and baked goods!",
+      "time": "4/15, 1 - 5pm",
+      "tags": ["on-campus", "food"],
+      "replies": [
+        {"text": "Will you have apples?"}
+      ],
+      "colorClass": "postColor3",
+      "coords": [-71.169, 42.3379]
+    },
+    {
+      "title": "Thrift Shop Collections",
+      "description": "Donate gently used clothing, and come shop April 23rd for new pieces. Collection boxes at Mac and Lower dining halls!",
+      "time": "4/23, time TBD",
+      "tags": ["on-campus", "thrift", "shop"],
+      "replies": [
+        {"text": "I'll be donating some fire pieces!"}
+      ],
+      "colorClass": "postColor4",
+      "coords": [-71.171, 42.3335]
+    },
+    {
+      "title": "Eco Poetics Workshop",
+      "description": "All writing levels welcome! To highlight the importance of poetry and its connection to sustainability and environmental issues. At the large tree in front of 245 Beacon!",
+      "time": "April 22nd, 3-6pm",
+      "tags": ["on-campus", "arts"],
+      "replies": [
+        {"text": "Awesome event!"}
+      ],
+      "colorClass": "postColor5",
+      "coords": [-71.169, 42.335]
     }
+
   ],
 "scale": {"categories": [
   {

@@ -7,7 +7,7 @@
 .mainContent {
   display: flex;
   height: 100%;
-  margin-top: 64px;
+  margin-top: 20px;
 }
 
 .leftPanel {
@@ -47,7 +47,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Post card base styling */
 .postCard {
   background: white;
   padding: 1rem;
@@ -64,12 +63,25 @@
   background: #f0f0f0;
 }
 
-.postColor1 {
-  border-left-color: #27ae60;
+/* Earthy color palette for tags */
+.tag.postColor1 {
+  background-color: #6c9e6f; /* Earthy green */
 }
 
-.postColor2 {
-  border-left-color: #2980b9;
+.tag.postColor2 {
+  background-color: #4a8bb3; /* Soft blue */
+}
+
+.tag.postColor3 {
+  background-color: #577d4f; /* Muted green */
+}
+
+.tag.postColor4 {
+  background-color: #4a7f8b; /* Dusty blue */
+}
+
+.tag.postColor5 {
+  background-color: #6a9db3; /* Light earthy blue */
 }
 
 .postTitle {
@@ -97,7 +109,6 @@
   font-size: 0.8rem;
 }
 
-/* Marker styling — fully colored now */
 .marker {
   width: 24px;
   height: 24px;
@@ -105,25 +116,48 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Colored marker fill */
+/* Colored marker fill with earthy tones */
 .postColor1.marker {
-  background-color: #27ae60;
+  background-color: #6c9e6f;
 }
 
 .postColor2.marker {
-  background-color: #2980b9;
+  background-color: #4a8bb3;
 }
 
-/* Tag colors */
+.postColor3.marker {
+  background-color: #577d4f;
+}
+
+.postColor4.marker {
+  background-color: #4a7f8b;
+}
+
+.postColor5.marker {
+  background-color: #6a9db3;
+}
+
+/* Tag colors with earthy greens and blues */
 .postColor1 .tag {
-  background-color: #27ae60;
+  background-color: #6c9e6f;
 }
 
 .postColor2 .tag {
-  background-color: #2980b9;
+  background-color: #4a8bb3;
 }
 
-/* Suggestions dropdown */
+.postColor3 .tag {
+  background-color: #577d4f;
+}
+
+.postColor4.tag {
+  background-color: #4a7f8b;
+}
+
+.postColor5.tag {
+  background-color: #6a9db3;
+}
+
 .suggestionList {
   list-style: none;
   padding: 0;
@@ -155,4 +189,35 @@
   margin-left: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+.colorBar {
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Color bar with earthy green and blue tones */
+.colorBar.postColor1 {
+  background-color: #6c9e6f;
+}
+
+.colorBar.postColor2 {
+  background-color: #4a8bb3;
+}
+
+.colorBar.postColor3 {
+  background-color: #577d4f;
+}
+
+.colorBar.postColor4 {
+  background-color: #4a7f8b;
+}
+
+.colorBar.postColor5 {
+  background-color: #6a9db3;
 }

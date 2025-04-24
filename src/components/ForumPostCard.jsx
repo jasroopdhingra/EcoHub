@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { MapPin } from 'lucide-react';
 import styles from '../styles/Forum.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function ForumPostCard({ post, onFindOnMap }) {
   const repliesCount = post.replies ? post.replies.length : 0;
+  const navigate = useNavigate();
   const [showReplies, setShowReplies] = useState(false);
 
   const toggleReplies = (e) => {
@@ -11,10 +13,10 @@ export default function ForumPostCard({ post, onFindOnMap }) {
     setShowReplies((prev) => !prev);
   };
 
-  const handleFindOnMap = () => {
-    if (onFindOnMap) onFindOnMap(post);
-    else console.log('Find on map clicked for', post);
-  };
+  
+    const handleFindOnMap = () => {
+      navigate('/map', { state: { selectedPost: post } });
+    };
 
   return (
     <div className={styles.postCard}>
