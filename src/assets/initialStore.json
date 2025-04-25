@@ -15,42 +15,93 @@
       "replies": []
     }
   ],
-"scale": {"categories": [
-  {
-    "title": "Habits",
-    "items": [
-      "Reusable Bottles",
-      "Buy secondhand",
-      "Reduce Meat Consumption",
-      "Aim for a zero-waste lifestyle"
-    ]
-  },
-  {
-    "title": "School",
-    "items": [
-      "Paperless Notes",
-      "Recycle used notebooks",
-      "Encourage professors to use e-books",
-      "Work with administration to reduce campus waste"
-    ]
-  },
-  {
-    "title": "Transportation",
-    "items": [
-      "Walk or bike",
-      "Carpool with friends",
-      "Invest in a reusable transit pass",
-      "Support electric vehicle initiatives on campus"
-    ]
-  },
-  {
-    "title": "Community",
-    "items": [
-      "Join eco-initiatives",
-      "Attend farmers markets",
-      "Start a community garden",
-      "Launch a local sustainability campaign"
-    ]
+    "scale": {
+      "categories": [
+        {
+          "title": "Habits",
+          "items": [
+            {
+              "name": "Reusable Bottles",
+              "blurb": "Reduce plastic waste by carrying your own refillable water bottle."
+            },
+            {
+              "name": "Buy secondhand",
+              "blurb": "Find unique pieces while cutting down on the demand for new production."
+            },
+            {
+              "name": "Reduce Meat Consumption",
+              "blurb": "Lower your carbon footprint by opting for plant-based meals."
+            },
+            {
+              "name": "Aim for a zero-waste lifestyle",
+              "blurb": "Minimize trash by choosing reusable, compostable, and package-free options."
+            }
+          ]
+        },
+        {
+          "title": "School",
+          "items": [
+            {
+              "name": "Paperless Notes",
+              "blurb": "Switch to digital note-taking apps to cut down on paper use."
+            },
+            {
+              "name": "Recycle used notebooks",
+              "blurb": "Dispose of old notebooks in campus recycling bins or reuse pages."
+            },
+            {
+              "name": "Encourage professors to use e-books",
+              "blurb": "Promote digital course materials to save paper and reduce costs."
+            },
+            {
+              "name": "Work with administration to reduce campus waste",
+              "blurb": "Collaborate on initiatives like composting, recycling, and eco-friendly events."
+            }
+          ]
+        },
+        {
+          "title": "Transportation",
+          "items": [
+            {
+              "name": "Walk or bike",
+              "blurb": "Choose active transportation to cut emissions and stay healthy."
+            },
+            {
+              "name": "Carpool with friends",
+              "blurb": "Share rides to lower fuel use and traffic congestion."
+            },
+            {
+              "name": "Invest in a reusable transit pass",
+              "blurb": "Commit to public transportation with a sustainable and cost-effective pass."
+            },
+            {
+              "name": "Support electric vehicle initiatives on campus",
+              "blurb": "Advocate for EV charging stations and eco-friendly transit options."
+            }
+          ]
+        },
+        {
+          "title": "Community",
+          "items": [
+            {
+              "name": "Join eco-initiatives",
+              "blurb": "Get involved with local groups working for environmental change."
+            },
+            {
+              "name": "Attend farmers markets",
+              "blurb": "Support local farmers and reduce food miles by buying fresh, seasonal produce."
+            },
+            {
+              "name": "Start a community garden",
+              "blurb": "Create green spaces and grow your own organic vegetables."
+            },
+            {
+              "name": "Launch a local sustainability campaign",
+              "blurb": "Raise awareness and advocate for eco-friendly practices in your area."
+            }
+          ]
+        }
+      ]
+    }
   }
-]}}
   
