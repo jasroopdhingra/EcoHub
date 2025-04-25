@@ -57,6 +57,24 @@ const Forum = () => {
           >
             on-campus
           </span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('food')}
+          >
+            food
+          </span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('arts')}
+          >
+            arts
+          </span>
+          <span
+            className={styles.tag}
+            onClick={() => handleTagClick('shop')}
+          >
+            shop
+          </span>
           <NewPost />
         </div>
 
