@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dd8067c871c06c9d997151b7ad419219",
+    "revision": "b9934c7be39ad94e2764f8ececda9f47",
     "url": "/ecohub/index.html"
   },
   {
