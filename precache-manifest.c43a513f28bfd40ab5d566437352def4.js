@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ea60220573b7ae356250c3e0629c926",
+    "revision": "54dbd1609eb74dbceec652ef27c8c81e",
     "url": "/ecohub/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ecohub/static/css/2.5470235e.chunk.css"
   },
   {
-    "revision": "97a5437258198cb1588e",
+    "revision": "fde284ff3a672f91407e",
     "url": "/ecohub/static/css/main.ace15e94.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ecohub/static/js/3.d67e1488.chunk.js"
   },
   {
-    "revision": "97a5437258198cb1588e",
-    "url": "/ecohub/static/js/main.83ea46e3.chunk.js"
+    "revision": "fde284ff3a672f91407e",
+    "url": "/ecohub/static/js/main.9d418c11.chunk.js"
   },
   {
     "revision": "0b93adec90552f2355d5",
