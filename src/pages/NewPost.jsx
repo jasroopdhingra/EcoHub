@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import TagSelector from '../components/TagSelector.jsx';
-import ImageUploader from '../components/ImageUploader.jsx';
+import styles from '../styles/NewPost.module.css';
 import MapSelectorButton from '../components/MapSelectorButton.jsx';
 import MapPickerModal from '../components/MapPickerModal.jsx';
-import styles from '../styles/NewPost.module.css';
 
-const tagOptions = ['thrift', 'events', 'on-campus'];
+const tagOptions = ['thrift', 'events', 'on-campus', 'food', 'arts', 'shop'];
 
 export default function NewPost({ addPost }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
-  const [photo, setPhoto] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(null);
   const [location, setLocation] = useState(null);
   const [showMapPicker, setShowMapPicker] = useState(false);
 
@@ -23,6 +22,15 @@ export default function NewPost({ addPost }) {
     setSelectedTags((prev) =>
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
+  };
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setPhotoPreview(reader.result);
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleMapSelect = (coords) => {
@@ -40,9 +48,11 @@ export default function NewPost({ addPost }) {
       title: title.trim(),
       description: description.trim(),
       tags: selectedTags,
-      replies: 0,
-      photo,
-      location,
+      replies: [],
+      colorClass: 'postColor5',
+      photo: photoPreview,
+      time: "Not Available",
+      coords: location ? [location.lng, location.lat] : [],
     });
     navigate('/forum');
   };
@@ -53,9 +63,8 @@ export default function NewPost({ addPost }) {
     <>
       <Navbar />
       <form className={styles.newPostContainer} onSubmit={handleSubmit}>
-        {/* Title Input */}
         <div className={styles.titleRow}>
-          <label htmlFor="post-title">Post Title</label>
+          <label htmlFor="post-title">Post Title:</label>
           <input
             id="post-title"
             type="text"
@@ -66,16 +75,32 @@ export default function NewPost({ addPost }) {
           />
         </div>
 
-        {/* Tag Selector */}
         <TagSelector
           tagOptions={tagOptions}
           selectedTags={selectedTags}
           onToggleTag={toggleTag}
         />
 
-        {/* Photo + Description */}
         <div className={styles.inputRow}>
-          <ImageUploader photo={photo} onPhotoChange={setPhoto} />
+          <div className={styles.imageUpload}>
+            <label htmlFor="photo-upload" className={styles.mapButton}>
+              {photoPreview ? 'Change Photo' : 'Upload Photo'}
+            </label>
+            <input
+              id="photo-upload"
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              style={{ display: 'none' }}
+            />
+            {photoPreview && (
+              <img
+                src={photoPreview}
+                alt="Preview"
+                className={styles.imagePreview}
+              />
+            )}
+          </div>
           <div className={styles.textBox}>
             <label htmlFor="description">Tell us what you have to say!</label>
             <textarea
@@ -87,15 +112,15 @@ export default function NewPost({ addPost }) {
           </div>
         </div>
 
-        {/* Location Picker */}
-        <div className={styles.locationRow}>
+        <div className={styles.mapRow}>
           <label>Location</label>
           <MapSelectorButton
             location={location}
             onClick={() => setShowMapPicker(true)}
+            className={styles.mapButton}
           />
           {location && (
-            <div className={styles.locationPreview}>
+            <div className={styles.locationInfo}>
               Lat: {location.lat.toFixed(5)}, Lng: {location.lng.toFixed(5)}
             </div>
           )}
@@ -108,7 +133,6 @@ export default function NewPost({ addPost }) {
           />
         )}
 
-        {/* Submit */}
         <div className={styles.submitRow}>
           <button
             type="submit"

@@ -10,7 +10,6 @@ import initialStore from './assets/initialStore.json';
 function App() {
   const [posts, setPosts] = useState(initialStore['forum-posts'] || []);
 
-  // Function to add a new post
   const addPost = (newPost) => {
     setPosts((prev) => [newPost, ...prev]);
   };
@@ -18,7 +17,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/scale" element={<Scale />} />
-      <Route path="/map" element={<Map />} />
+      <Route path="/map" element={<Map posts={posts} />} />
       <Route path="/forum" element={<Forum posts={posts} />} />
       <Route path="/new-post" element={<NewPost addPost={addPost} />} />
     </Routes>

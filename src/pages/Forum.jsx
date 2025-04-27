@@ -4,9 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import ForumPostCard from '../components/ForumPostCard.jsx';
 import styles from '../styles/Forum.module.css';
-import initialStore from '../assets/initialStore.json';
 
-// Button to navigate to New Post page
 function AddPostButton() {
   const navigate = useNavigate();
   return (
@@ -19,10 +17,8 @@ function AddPostButton() {
 
 export default function Forum({ posts = [] }) {
   const [activeTag, setActiveTag] = useState('');
-  const initialPosts = initialStore['forum-posts'];
 
-  // Combine initial posts with any dynamically passed-in posts
-  const allPosts = [...initialPosts, ...posts];
+  const allPosts = posts;
 
   const handleTagClick = (tag) => {
     setActiveTag((prev) => (prev === tag ? '' : tag));
@@ -40,15 +36,18 @@ export default function Forum({ posts = [] }) {
       <div className={styles.forumContainer}>
         <div className={styles.tagFilters}>
           <span>Filter by tag:</span>
-          {tagList.map((tag) => (
-            <span
-              key={tag}
-              className={styles.tag}
-              onClick={() => handleTagClick(tag)}
-            >
-              {tag}
-            </span>
-          ))}
+          {tagList.map((tag) => {
+  const isActive = activeTag === tag;
+  return (
+    <span
+      key={tag}
+      className={`${styles.tag} ${isActive ? styles.tagActive : ''}`}
+      onClick={() => handleTagClick(tag)}
+    >
+      {tag}
+    </span>
+  );
+})}
           <AddPostButton />
         </div>
 

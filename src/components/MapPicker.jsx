@@ -24,10 +24,9 @@ export default function AddressPicker({ onSelect, onCancel }) {
         setError('No results found for this address.');
       } else {
         const { lat, lon } = results[0];
-        const coords = { lat: parseFloat(lat), lng: parseFloat(lon) };
-        setPosition(coords);
+        setPosition({ lat: parseFloat(lat), lng: parseFloat(lon) });
       }
-    } catch (err) {
+    } catch {
       setError('Error fetching coordinates. Please try again.');
     } finally {
       setLoading(false);
@@ -36,18 +35,25 @@ export default function AddressPicker({ onSelect, onCancel }) {
 
   return (
     <div className={styles.mapPickerContainer}>
-      <input
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
-        placeholder="Enter an address"
-        className={styles.searchBox}
-      />
-      <button onClick={handleGeocode} disabled={loading}>
-        {loading ? 'Searching...' : 'Lookup Coordinates'}
-      </button>
+      <div className={styles.mapRow}>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          placeholder="Enter an address"
+          className={styles.searchBox}
+        />
+        <button
+          onClick={handleGeocode}
+          disabled={loading}
+          className={styles.lookupButton}
+        >
+          {loading ? 'Searching…' : 'Lookup'}
+        </button>
+      </div>
 
       {error && <p className={styles.error}>{error}</p>}
+
       {position && (
         <div className={styles.result}>
           <p>Latitude: {position.lat}</p>
@@ -55,14 +61,17 @@ export default function AddressPicker({ onSelect, onCancel }) {
         </div>
       )}
 
-      <div className={styles.buttons}>
+      <div className={styles.mapRow}>
         <button
           onClick={() => position && onSelect(position)}
           disabled={!position}
+          className={styles.mapButton}
         >
-          Select Coordinates
+          Select
         </button>
-        <button onClick={onCancel}>Cancel</button>
+        <button onClick={onCancel} className={styles.mapButton}>
+          Cancel
+        </button>
       </div>
     </div>
   );
