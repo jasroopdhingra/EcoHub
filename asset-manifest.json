@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/ecohub/static/css/main.ace15e94.chunk.css",
-    "main.js": "/ecohub/static/js/main.9d418c11.chunk.js",
-    "main.js.map": "/ecohub/static/js/main.9d418c11.chunk.js.map",
-    "runtime-main.js": "/ecohub/static/js/runtime-main.85a296e2.js",
-    "runtime-main.js.map": "/ecohub/static/js/runtime-main.85a296e2.js.map",
+    "main.css": "/ecohub/static/css/main.f9f2c67e.chunk.css",
+    "main.js": "/ecohub/static/js/main.4056be27.chunk.js",
+    "main.js.map": "/ecohub/static/js/main.4056be27.chunk.js.map",
+    "runtime-main.js": "/ecohub/static/js/runtime-main.6e75f37e.js",
+    "runtime-main.js.map": "/ecohub/static/js/runtime-main.6e75f37e.js.map",
     "static/css/2.5470235e.chunk.css": "/ecohub/static/css/2.5470235e.chunk.css",
-    "static/js/2.e6a391e3.chunk.js": "/ecohub/static/js/2.e6a391e3.chunk.js",
-    "static/js/2.e6a391e3.chunk.js.map": "/ecohub/static/js/2.e6a391e3.chunk.js.map",
-    "static/js/3.d67e1488.chunk.js": "/ecohub/static/js/3.d67e1488.chunk.js",
-    "static/js/3.d67e1488.chunk.js.map": "/ecohub/static/js/3.d67e1488.chunk.js.map",
+    "static/js/2.6f1c6970.chunk.js": "/ecohub/static/js/2.6f1c6970.chunk.js",
+    "static/js/2.6f1c6970.chunk.js.map": "/ecohub/static/js/2.6f1c6970.chunk.js.map",
+    "static/js/3.12186f73.chunk.js": "/ecohub/static/js/3.12186f73.chunk.js",
+    "static/js/3.12186f73.chunk.js.map": "/ecohub/static/js/3.12186f73.chunk.js.map",
     "index.html": "/ecohub/index.html",
-    "precache-manifest.c43a513f28bfd40ab5d566437352def4.js": "/ecohub/precache-manifest.c43a513f28bfd40ab5d566437352def4.js",
+    "precache-manifest.5542fff533061a817282f00ee406b12d.js": "/ecohub/precache-manifest.5542fff533061a817282f00ee406b12d.js",
     "service-worker.js": "/ecohub/service-worker.js",
     "static/css/2.5470235e.chunk.css.map": "/ecohub/static/css/2.5470235e.chunk.css.map",
-    "static/css/main.ace15e94.chunk.css.map": "/ecohub/static/css/main.ace15e94.chunk.css.map",
-    "static/js/2.e6a391e3.chunk.js.LICENSE.txt": "/ecohub/static/js/2.e6a391e3.chunk.js.LICENSE.txt",
-    "static/media/Navbar.module.css": "/ecohub/static/media/green-buildings.a67a336e.jpeg"
+    "static/css/main.f9f2c67e.chunk.css.map": "/ecohub/static/css/main.f9f2c67e.chunk.css.map",
+    "static/js/2.6f1c6970.chunk.js.LICENSE.txt": "/ecohub/static/js/2.6f1c6970.chunk.js.LICENSE.txt",
+    "static/media/IMG_0920.png": "/ecohub/static/media/IMG_0920.2d961f41.png",
+    "static/media/green-buildings.jpeg": "/ecohub/static/media/green-buildings.a67a336e.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.85a296e2.js",
+    "static/js/runtime-main.6e75f37e.js",
     "static/css/2.5470235e.chunk.css",
-    "static/js/2.e6a391e3.chunk.js",
-    "static/css/main.ace15e94.chunk.css",
-    "static/js/main.9d418c11.chunk.js"
+    "static/js/2.6f1c6970.chunk.js",
+    "static/css/main.f9f2c67e.chunk.css",
+    "static/js/main.4056be27.chunk.js"
   ]
 }
