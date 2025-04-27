@@ -19,7 +19,17 @@ export default function ScaleCard({ title, items }) {
         >
           <h3 className={css.cardTitle}>{item.name}</h3>
           {expandedIndex === index && (
-            <p className={css.cardBlurb}>{item.blurb}</p>
+            <div>
+              <p className={css.cardBlurb}>{item.blurb}</p>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={css.cardLink}
+              >
+                Learn more →
+              </a>
+            </div>
           )}
         </div>
       ))}

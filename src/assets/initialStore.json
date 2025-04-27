@@ -67,19 +67,23 @@
           "items": [
             {
               "name": "Reusable Bottles",
-              "blurb": "Reduce plastic waste by carrying your own refillable water bottle."
+              "blurb": "Reduce plastic waste by carrying your own refillable water bottle.",
+              "link": "https://www.epa.gov/trash-free-waters/reduce-plastic-waste"
             },
             {
               "name": "Buy secondhand",
-              "blurb": "Find unique pieces while cutting down on the demand for new production."
+              "blurb": "Find unique pieces while cutting down on the demand for new production.",
+               "link": "https://www.greenpeace.org/usa/sustainable-fashion-guide/"
             },
             {
               "name": "Reduce Meat Consumption",
-              "blurb": "Lower your carbon footprint by opting for plant-based meals."
+              "blurb": "Lower your carbon footprint by opting for plant-based meals.",
+              "link": "https://www.climatecouncil.org.au/resources/plant-based-diets/"
             },
             {
               "name": "Aim for a zero-waste lifestyle",
-              "blurb": "Minimize trash by choosing reusable, compostable, and package-free options."
+              "blurb": "Minimize trash by choosing reusable, compostable, and package-free options.",
+              "link": "https://www.zerowastehome.com/"
             }
           ]
         },

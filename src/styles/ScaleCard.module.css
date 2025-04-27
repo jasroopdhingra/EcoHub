@@ -40,6 +40,55 @@
   .cardBlurb {
     margin-top: 0.5rem;
     font-size: 0.9rem;
-    color: #333;
+    color: white;
     transition: opacity 0.3s ease;
+  }
+  .cardLink{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: white;
+    transition: opacity 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .cardBlurb {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgb(4, 255, 0);;
+    transition: opacity 0.3s ease;
+  }
+  .cardBlurb {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: white;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Fade-in blurb on card hover */
+  .card:hover .cardBlurb {
+    opacity: 0.8;
+  }
+  
+  /* Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
