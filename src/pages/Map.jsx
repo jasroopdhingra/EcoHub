@@ -3,20 +3,18 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Map.module.css';
-import initialStore from '../assets/initialStore.json';
 
 
-export default function MapWithForum() {
+export default function MapWithForum({ posts = [] }) {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
-  const posts = initialStore["forum-posts"];
-
+  const allPosts = posts;
   const [mapLoaded, setMapLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [filteredPosts, setFilteredPosts] = useState(allPosts);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedTag, setSelectedTag] = useState('');
-
+  console.log("Posts:", allPosts)
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
@@ -29,7 +27,7 @@ export default function MapWithForum() {
     mapRef.current.markerMap = {};
 
     map.on('load', () => {
-      posts.forEach((post) => {
+      allPosts.forEach((post) => {
         const markerEl = document.createElement('div');
         markerEl.className = `${styles.marker} ${styles[post.colorClass]}`;
 
@@ -50,7 +48,7 @@ export default function MapWithForum() {
     });
 
     return () => map.remove();
-  }, [posts]);
+  }, [allPosts]);
 
   const handlePostClick = (post) => {
     if (!mapRef.current || !mapLoaded) return;
@@ -72,7 +70,7 @@ export default function MapWithForum() {
       return;
     }
 
-    const matches = posts.filter(post =>
+    const matches = allPosts.filter(post =>
       post.title.toLowerCase().includes(query.toLowerCase())
     );
     setSuggestions(matches);
@@ -95,9 +93,9 @@ export default function MapWithForum() {
     setSelectedTag(selectedTag);
 
     if (selectedTag === '') {
-      setFilteredPosts(posts);
+      setFilteredPosts(allPosts);
     } else {
-      const filtered = posts.filter(post =>
+      const filtered = allPosts.filter(post =>
         post.tags.includes(selectedTag)
       );
       setFilteredPosts(filtered);
@@ -105,7 +103,7 @@ export default function MapWithForum() {
   };
 
   const allTags = Array.from(
-    new Set(posts.flatMap(post => post.tags))
+    new Set(allPosts.flatMap(post => post.tags))
   );
 
   return (
