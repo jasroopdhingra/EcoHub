@@ -60,97 +60,108 @@
     }
 
   ],
-    "scale": {
-      "categories": [
-        {
-          "title": "Habits",
-          "items": [
-            {
-              "name": "Reusable Bottles",
-              "blurb": "Reduce plastic waste by carrying your own refillable water bottle.",
-              "link": "https://www.epa.gov/trash-free-waters/reduce-plastic-waste"
-            },
-            {
-              "name": "Buy secondhand",
-              "blurb": "Find unique pieces while cutting down on the demand for new production.",
-               "link": "https://www.greenpeace.org/usa/sustainable-fashion-guide/"
-            },
-            {
-              "name": "Reduce Meat Consumption",
-              "blurb": "Lower your carbon footprint by opting for plant-based meals.",
-              "link": "https://www.climatecouncil.org.au/resources/plant-based-diets/"
-            },
-            {
-              "name": "Aim for a zero-waste lifestyle",
-              "blurb": "Minimize trash by choosing reusable, compostable, and package-free options.",
-              "link": "https://www.zerowastehome.com/"
-            }
-          ]
-        },
-        {
-          "title": "School",
-          "items": [
-            {
-              "name": "Paperless Notes",
-              "blurb": "Switch to digital note-taking apps to cut down on paper use."
-            },
-            {
-              "name": "Recycle used notebooks",
-              "blurb": "Dispose of old notebooks in campus recycling bins or reuse pages."
-            },
-            {
-              "name": "Encourage professors to use e-books",
-              "blurb": "Promote digital course materials to save paper and reduce costs."
-            },
-            {
-              "name": "Work with administration to reduce campus waste",
-              "blurb": "Collaborate on initiatives like composting, recycling, and eco-friendly events."
-            }
-          ]
-        },
-        {
-          "title": "Transportation",
-          "items": [
-            {
-              "name": "Walk or bike",
-              "blurb": "Choose active transportation to cut emissions and stay healthy."
-            },
-            {
-              "name": "Carpool with friends",
-              "blurb": "Share rides to lower fuel use and traffic congestion."
-            },
-            {
-              "name": "Invest in a reusable transit pass",
-              "blurb": "Commit to public transportation with a sustainable and cost-effective pass."
-            },
-            {
-              "name": "Support electric vehicle initiatives on campus",
-              "blurb": "Advocate for EV charging stations and eco-friendly transit options."
-            }
-          ]
-        },
-        {
-          "title": "Community",
-          "items": [
-            {
-              "name": "Join eco-initiatives",
-              "blurb": "Get involved with local groups working for environmental change."
-            },
-            {
-              "name": "Attend farmers markets",
-              "blurb": "Support local farmers and reduce food miles by buying fresh, seasonal produce."
-            },
-            {
-              "name": "Start a community garden",
-              "blurb": "Create green spaces and grow your own organic vegetables."
-            },
-            {
-              "name": "Launch a local sustainability campaign",
-              "blurb": "Raise awareness and advocate for eco-friendly practices in your area."
-            }
-          ]
-        }
-      ]
-    }
+  "scale": {
+    "categories": [
+      {
+        "title": "Habits",
+        "items": [
+          {
+            "name": "Reusable Bottles",
+            "blurb": "Reduce plastic waste by carrying your own refillable water bottle.",
+            "link": "https://cleanwater.org/2023/07/10/reusable-water-bottles-understanding-reasons-why-use-them"
+          },
+          {
+            "name": "Buy secondhand",
+            "blurb": "Find unique pieces while cutting down on the demand for new production.",
+            "link": "https://www.thebostoncalendar.com/events/the-26-best-thrift-stores-in-boston-for-vintage-and-designer-finds"
+          },
+          {
+            "name": "Reduce Meat Consumption",
+            "blurb": "Lower your carbon footprint by opting for plant-based meals.",
+            "link": "https://hsph.harvard.edu/news/meat-consumption-health-environment/"
+          },
+          {
+            "name": "Aim for a zero-waste lifestyle",
+            "blurb": "Minimize trash by choosing reusable, compostable, and package-free options.",
+            "link": "https://onetreeplanted.org/blogs/stories/how-to-reduce-waste?srsltid=AfmBOornO4_5Z6ePV-3K2-alATD4RA3jeFlNR6cNKjqMwonhPBocBl5o"
+          }
+        ]
+      },
+      {
+        "title": "School",
+        "items": [
+          {
+            "name": "Paperless Notes",
+            "blurb": "Switch to digital note-taking apps to cut down on paper use.",
+            "link": "https://blog.notability.com/post/going-paperless"
+          },
+          {
+            "name": "Recycle used notebooks",
+            "blurb": "Dispose of old notebooks in campus recycling bins or reuse pages.",
+            "link": "https://geetanadkarni.com/2022/11/11-things-to-do-with-partially-used-abandoned-journals-and-notebooks/"
+          },
+          {
+            "name": "Encourage professors to use e-books",
+            "blurb": "Promote digital course materials to save paper and reduce costs.",
+            "link": "https://ecobravo.co.uk/blogs/blog/7-surprisingly-amazing-environmental-benefits-of-e-books?srsltid=AfmBOooPIW6x6U7YpmRieRWJ2z7Wz1_Ih4f5N9PKHvdS0Swanz3xNnA3"
+          },
+          {
+            "name": "Work with administration to reduce campus waste",
+            "blurb": "Collaborate on initiatives like composting, recycling, and eco-friendly events.",
+            "link": "https://www.bc.edu/bc-web/offices/auxiliary-services/sites/dining/about/sustainability/Green2Go.html"
+          }
+        ]
+      },
+      {
+        "title": "Transportation",
+        "items": [
+          {
+            "name": "Walk or bike",
+            "blurb": "Choose active transportation to cut emissions and stay healthy.",
+            "link": "https://prod-transportation.drupalsites.harvard.edu/sustainable-transportation/bike-walk"
+          },
+          {
+            "name": "Carpool with friends",
+            "blurb": "Share rides to lower fuel use and traffic congestion.",
+            "link": "https://www.green.earth/blog/green-commuting-the-environmental-benefits-of-carpooling-and-alternative-modes-of-transportation"
+          },
+          {
+            "name": "Invest in a reusable transit pass",
+            "blurb": "Commit to public transportation with a sustainable and cost-effective pass.",
+            "link": "https://www.mbta.com/fares"
+          },
+          {
+            "name": "Support electric vehicle initiatives on campus",
+            "blurb": "Advocate for EV charging stations and eco-friendly transit options.",
+            "link": "https://www.epa.gov/greenvehicles/electric-vehicle-myths"
+          }
+        ]
+      },
+      {
+        "title": "Community",
+        "items": [
+          {
+            "name": "Join eco-initiatives",
+            "blurb": "Get involved with local groups working for environmental change.",
+            "link": "https://bc.campuslabs.com/engage/organization/ecopledge"
+          },
+          {
+            "name": "Attend farmers markets",
+            "blurb": "Support local farmers and reduce food miles by buying fresh, seasonal produce.",
+            "link": "https://www.meetboston.com/blog/post/farmers-markets/"
+          },
+          {
+            "name": "Start a community garden",
+            "blurb": "Create green spaces and grow your own organic vegetables.",
+            "link": "https://thetrustees.org/place/boston-community-gardens/"
+          },
+          {
+            "name": "Launch a local sustainability campaign",
+            "blurb": "Raise awareness and advocate for eco-friendly practices in your area.",
+            "link": "https://www.boston.gov/departments/environment"
+          }
+        ]
+      }
+    ]
   }
-  
+}
